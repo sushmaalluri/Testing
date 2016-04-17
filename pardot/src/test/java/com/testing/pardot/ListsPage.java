@@ -14,9 +14,18 @@ public class ListsPage {
 	By  nameElement = By.xpath("//input[@name='name']"); //name input text box
 	By createList = By.xpath("//button[@id='save_information' and text()='Create List']"); //"Create List" button element
 	By duplicateListerror = By.id("error_for_name"); // duplicate list error
+	By listPage = By.xpath("//div/h1[contains(text(),'Lists')]");// lists element for finding whether we got that page
 	
 	public ListsPage(WebDriver driver){
 		this.driver = driver;
+	}
+	
+	public WebElement getListsHeadingElement(){
+		return driver.findElement(listPage); 
+	}
+	
+	public WebElement getListCreatedElement(String listname){
+		return driver.findElement(By.xpath("//h1[text()='"+listname+"']"));
 	}
 	
 	public void addList(String name){

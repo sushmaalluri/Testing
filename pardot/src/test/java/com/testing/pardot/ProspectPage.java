@@ -10,10 +10,21 @@ import org.openqa.selenium.support.ui.Select;
 public class ProspectPage {
 	
 	WebDriver driver;
+	By prosHeader = By.xpath("//h1[text()='Prospects']");
 	
 	public ProspectPage(WebDriver driver){
 		this.driver=driver;
 	}
+	
+	public WebElement getProsHeader(){
+		return driver.findElement(prosHeader);
+	}
+	
+	public WebElement getProsCreatedHeader(String prosname){
+		return driver.findElement(By.xpath("//h1[text()='"+prosname+"']"));
+	}
+
+	
 	
 	public void addProspect(String emailname){
 		

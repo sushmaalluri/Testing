@@ -13,7 +13,7 @@ import junit.framework.TestCase;
 public class PardotTest extends TestCase{
 	
 	WebDriver driver;
-	
+	By dashBoard = By.xpath("//h1[contains(text(),'Dashboard')]");// dashboard element
 	@Override
 	public void setUp(){
 		driver = new FirefoxDriver();
@@ -26,21 +26,28 @@ public class PardotTest extends TestCase{
 		loginPage.login();
 	   //on successful login the url appears to be "https://pi.pardot.com/"
        assertEquals("login was unsuccessful","https://pi.pardot.com/",driver.getCurrentUrl());
+      // verifying for availability of dashboard element after logging in
+      assertTrue("unable to go to lists page", driver.findElement(dashBoard).isDisplayed());
        
        // go to (Marketing > Segmentation > Lists)
        SideMenu menupage = new SideMenu(driver);
        menupage.gotoMarkSegLists();
+	   ListsPage listPage=new ListsPage(driver);
        //verify lists page
 	   assertEquals("unable to go to lists page","https://pi.pardot.com/list",driver.getCurrentUrl());
-      
-	   ListsPage listPage=new ListsPage(driver);
+       // verify for avalibility of Lists element after clicking (Marketing > Segmentation > Lists)
+	   assertTrue("unable to go to lists page", listPage.getListsHeadingElement().isDisplayed());
+	   
+	  
 	   String listName="sushma"+System.currentTimeMillis();
 	   listPage.addList(listName);
 	   // verify if list is created
 	   assertTrue("unable to create a list",driver.getTitle().contains(listName));
+	   // verify for list created by getting the heading element
+	   assertEquals("List is not created",listName,listPage.getListCreatedElement(listName).getText());
+	   
 	   // saving the firstlist link for future use
-	   String firstListUrl= driver.getCurrentUrl();
-	  
+	   String firstListUrl= driver.getCurrentUrl();	  
 	   // navigate to lists page to create new list 
 	   driver.navigate().to("https://pi.pardot.com/list");
 	   // retrying to create the list with same name
@@ -53,6 +60,8 @@ public class PardotTest extends TestCase{
 	   listPage.renameList(firstListUrl, reNameList);
 	   // verify that firstlist has been renamed
 	   assertTrue("unsuccessful rename",driver.getTitle().contains(reNameList));
+	// verify for list created by getting the heading element
+	   assertEquals("List is not renamed",reNameList,listPage.getListCreatedElement(reNameList).getText());
 	   
 	   // navigate to lists page to create new list 
 	   driver.navigate().to("https://pi.pardot.com/list");
@@ -60,25 +69,30 @@ public class PardotTest extends TestCase{
 	   listPage.addList(listName);
 	   // verify if list is created
 	   assertTrue("unable to create a list",driver.getTitle().contains(listName));
+	   // verify for list created by getting the heading element
+	   assertEquals("List is not created",listName,listPage.getListCreatedElement(listName).getText());
 	   
 	   // saving the url to ensure the prospect is added to the list in future
 	   String listUrl=driver.getCurrentUrl();
 	   
 	   // go to prospect list page
 	   menupage.gotoProProspectList();
-       assertTrue("unable to reach prospect list page",driver.getTitle().contains("Prospects"));
-
-	   // add new prospect 
-	   String prospectEmail = "mail"+System.currentTimeMillis()+"@gmail.com";
 	   ProspectPage prosPage = new ProspectPage(driver);
+       assertTrue("unable to reach prospect list page",driver.getTitle().contains("Prospects"));
+       // verify whether prospect header is present when selected prospect list
+       assertTrue("header not present so no page",prosPage.getProsHeader().isDisplayed());
+	   
+       // add new prospect 
+	   String prospectEmail = "mail"+System.currentTimeMillis()+"@gmail.com";	 
 	   prosPage.addProspect(prospectEmail);
 	   // verifying that new prospect has created
        assertTrue("prospect is not created sucessfully",driver.getTitle().contains(prospectEmail));
-      
+       // verify the header of the page after creating prospect
+       assertEquals("prospect is not created successfully",prospectEmail,prosPage.getProsCreatedHeader(prospectEmail).getText());
+       
        // adding prospect to newly created list 
        prosPage.addProspectToList(listName, prospectEmail);
        assertTrue("prospect is not added to list sucessfully",driver.getTitle().contains(prospectEmail));
-       
        // to ensure whether the prospect is added to the newly created list
        driver.navigate().to(listUrl);
        waitForElementVisibility(driver, By.xpath("//tbody/tr/td/a[./text()='"+prospectEmail+"']"));  
@@ -93,8 +107,8 @@ public class PardotTest extends TestCase{
        
        // logging out from pardot
        menupage.logout();
-       
-       
+       //verify logogut by checking for password element on login page
+       assertTrue("logout is unsuccessful", loginPage.getPasswordElement().isDisplayed());
 	}
 
 

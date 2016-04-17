@@ -2,6 +2,7 @@ package com.testing.pardot;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class LoginPage {
 	
@@ -9,11 +10,14 @@ public class LoginPage {
 	By emailAddress = By.id("email_address");
 	By password = By.id("password");
 	By login = By.name("commit");
-	
-	public LoginPage(WebDriver driver){
+
+	public  LoginPage(WebDriver driver){
 		this.driver=driver;
 	}
 	
+	public WebElement getPasswordElement(){
+		return driver.findElement(password);
+	}
 	public void login(){
 		// go to pardot.com login page 
 		driver.navigate().to("https://pi.pardot.com");
