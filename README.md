@@ -1,16 +1,17 @@
 # selenium project
-# prerequisite
- Install maven in command line terminal
+<h4>prerequisite<h4>
+ <p>Install maven in command line terminal</p>
  
-# Executing project
-1.open terminal
-2.clone git( git clone https://github.com/sushmaalluri/Testing.git)
-3. go to folder cd Testing/pardot
+<h4> Executing project</h4>
+> open terminal
+> clone git( git clone https://github.com/sushmaalluri/Testing.git)
+> cd Testing/pardot(go to folder)
+> mvn clean
+> mvn install
+> mvn test
 
 
-
-
-
+<h4>Description</h4>
 •My main test class is in PardotTest.java file.
 
 •	The LoginPage.java file contains a method called "login", which is used to Login into the webpage Pardot.com (https://pi.pardot.com, Username: pardot.applicant@pardot.com, Password: Applicant2012).
