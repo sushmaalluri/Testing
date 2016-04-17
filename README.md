@@ -7,7 +7,9 @@ selenium project
 
 •	The LoginPage.java file contains a method called "login", which is used to Login into the webpage Pardot.com (https://pi.pardot.com, Username: pardot.applicant@pardot.com, Password: Applicant2012).
 
-•	The SideMenu.java contains all the side menu selection operations. This file contains"gotoMarkSegLists","gotoProProspectList","gotoEmailNewEmail" and “logout" methods.
+•	The SideMenu.java contains all the side menu selection operations.   
+
+     This filecontains"gotoMarkSegLists","gotoProProspectList","gotoEmailNewEmail" and “logout" methods.
      The "gotoMarkSegLists" is used to navigate through page and select lists (Marketing-->Segmentation--->Lists). 
      The "gotoProProspectList" is used to navigate through goto prospect-->prospectlist page. 
      The gotoEmailNewEmail method is used to navigate through Marketing-->Emails-->New Email and select the New Email.
