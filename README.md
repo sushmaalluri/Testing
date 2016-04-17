@@ -1,14 +1,14 @@
 # selenium project
 <h4>prerequisite<h4>
- <p>Install maven in command line terminal</p>
+ Install maven in command line terminal
  
 <h4> Executing project</h4>
-> open terminal
-> clone git( git clone https://github.com/sushmaalluri/Testing.git)
-> cd Testing/pardot(go to folder)
-> mvn clean
-> mvn install
-> mvn test
+> 1) open terminal<br>
+> 2) clone git( git clone https://github.com/sushmaalluri/Testing.git)<br>
+> 3) cd Testing/pardot(go to folder)<br>
+> 4) mvn clean<br>
+> 5) mvn install<br>
+> 6) mvn test<br>
 
 
 <h4>Description</h4>
