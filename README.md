@@ -1,6 +1,6 @@
 # selenium project
-<h4>prerequisite<h4>
- Install maven in command line terminal
+<h4>prerequisite</h4>
+> Install maven in command line terminal
  
 <h4> Executing project</h4>
 > 1) open terminal<br>
