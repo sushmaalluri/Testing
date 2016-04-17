@@ -12,7 +12,7 @@ selenium project
 	The "gotoMarkSegLists" is used to navigate through page and select lists (Marketing-->Segmentation--->Lists). 
 	The "gotoProProspectList" is used to navigate through goto prospect-->prospectlist page. 
 	The gotoEmailNewEmail method is used to navigate through Marketing-->Emails-->New Email and select the New Email.
-        The logout method is used to navigate through logout icon and select sign out option.
+ The logout method is used to navigate through logout icon and select sign out option.
 
 •	The ListPage.java file contains"addList" and "renameList" methods. The addList method is used to create a list with random name. The renameList method is used to rename the already existing list.
 
