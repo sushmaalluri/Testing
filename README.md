@@ -1,5 +1,13 @@
-# Testing
-selenium project
+# selenium project
+# prerequisite
+ Install maven in command line terminal
+ 
+# Executing project
+1.open terminal
+2.clone git( git clone https://github.com/sushmaalluri/Testing.git)
+3. go to folder cd Testing/pardot
+
+
 
 
 
