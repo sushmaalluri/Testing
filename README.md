@@ -1,4 +1,17 @@
 # selenium project
+<h4>Project Description</h4>
+     Building a Selenium test suite in Java using Selenium WebDriver
+> 1) Log in to Pardot (https://pi.pardot.com)<br>
+> 2) Create a list with a random name (Marketing > Segmentation > Lists)<br>
+> 3) Attempt to create another list with that same name and ensure the system correctly gives a validation failure<br>
+> 4) Rename the original list<br>
+> 5) Ensure the system allows the creation of another list with the original name now that the original list is renamed<br>
+> 6) Create a new prospect (Prospect > Prospect List)<br>
+> 7) Add your new prospect to the newly created list<br>
+> 8) Ensure the new prospect is successfully added to the list upon save<br>
+> 9) Send a text only email to the list (Marketing > Emails)  *Please note, email is disabled in this account so you will not actually be      able to send the email.  This is okay.<br>
+> 10) Log out<br>
+
 <h4>prerequisite</h4>
 > Install maven in command line terminal
  
